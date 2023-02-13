@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView =findViewById(R.id.textView);
-        call = RetrofitClient.getApiService().testApiGet("5");
+        textView = findViewById(R.id.textView);
+        call = RetrofitClient.getApiService().testApiGet("1");
         call.enqueue(new Callback<DataModel>(){
             //콜백 받는 부분
             @Override
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<DataModel>> call, Response<List<DataModel>> response) {
                 List<DataModel> result = response.body();
-                for(DataModel data : result){
+                for(DataModel data : result) {
                     String str = data.getUserId() +"\n"+
                             data.getId()+"\n"+
                             data.getTitle()+"\n"+
